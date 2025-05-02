@@ -229,17 +229,14 @@
     margin-inline: 20px;
   }
 
-  .main__article {
-    gap: 20px;
-  }
-
   .main__article:first-child {
     margin-block-start: 60px;
   }
 
-  .main__article{
+  .main__article {
     display: grid;
     margin-block-end: 80px;
+    gap: 20px;
   }
 
   .main__article:last-child {
@@ -277,7 +274,7 @@
     height: 100%;
   }
 
-  .main__img:first-child{
+  .main__img:first-child {
     grid-column: 1 / span 2;
     object-fit: cover;
     align-self: stretch;
@@ -306,7 +303,7 @@
     align-self: stretch;
   }
 
-  .footer.decorated-zone::before{
+  .footer.decorated-zone::before {
     top: 0;
   }
 
