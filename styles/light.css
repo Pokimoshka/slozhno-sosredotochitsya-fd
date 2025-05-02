@@ -9,8 +9,48 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+  --bg-image: url(/images/cover-image-light.png);
+  --font-family: "IBM Plex mono";
+  --effect-color: #353430;
+  --text-bg-color: #FF8DCB;
+  --font-color: #353430;
+  --font-color-custom: #353430;
+  --color-header: #FFC2E6;
+  --bg-color: #FF8DCB;
+  --color-shadow: #FF8DCB;
+  --font-regular: 400;
+  --font-weight: 700;
+  --font-size-default: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
+  --outline-color-focus: rgba(50, 49, 45, 0.4);
 }
 
 .theme-light .page {
   /* Вам также нужно будет написать ряд подобных селекторов */
+  background-image: var(--bg-image, url(/images/cover-image-light.png));
 }
+
+/* Остальные стили, только при необходимости */
+
+.theme-light .header__custom-rec {
+  display: none !important;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-image: url(/images/cover-image-light.png);
+    --font-family: "IBM Plex mono";
+    --effect-color: #353430;
+    --text-bg-color: #FF8DCB;
+    --font-color: #353430;
+    --font-color-custom: #353430;
+    --color-header: #FFC2E6;
+    --bg-color: #FF8DCB;
+    --color-shadow: #FF8DCB;
+    --font-regular: 400;
+    --font-weight: 700;
+    --font-size-default: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
+    --outline-color-focus: rgba(50, 49, 45, 0.4);
+  }
+}
+
+/* Остальные стили, только при необходимости */
