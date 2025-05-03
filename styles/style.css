@@ -2,7 +2,7 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-  background-image: var(--bg-image, url(/images/cover-image-dark.png));
+  background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@
   inline-size: 9px;
   box-shadow: 0 0 4px 2px var(--color-shadow, #FF0070);
   background-color: var(--effect-color, #FF0070);
-  border-radius: 100%;
+  border-radius: 50%;
 }
 
 .header {
@@ -40,6 +40,7 @@
   grid-template-rows: 1fr min-content 1fr;
   padding-inline: 10px;
   height: 100vh;
+  min-height: 668px;
 }
 
 .header__theme-menu {
@@ -64,6 +65,7 @@
   line-height: 1em;
   font-size: var(--font-size-default, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
   outline: initial;
+  cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
@@ -77,6 +79,7 @@
 
 .header__theme-menu-button_active {
   outline: 1px solid var(--effect-color, #FF0070);
+  pointer-events: none;
 }
 
 .decorated-zone::before {
@@ -103,7 +106,8 @@
   border-left: 1px solid var(--effect-color, #FF0070);
 }
 
-.header__title {
+.header__title,
+.footer__title {
   color: var(--color-header, #DB00FF);
   line-height: 0.83em;
   font-weight: var(--font-weight, 700);
@@ -120,19 +124,20 @@
 }
 
 .main {
+  margin-block: 40px;
   margin-inline: 10px;
 }
 
-.main__article {
+.main__section {
   grid-template-columns: repeat(3, 1fr);
   margin-block-start: 50px;
 }
 
-.main__article:first-child {
+.main__section:first-child {
   margin-block-start: 40px;
 }
 
-.main__article-title {
+.main__section-title {
   color: var(--effect-color, #FF0070);
   line-height: 1.3em;
   font-size: var(--font-size-default, clamp(1.125rem, 1.125rem + 0vw, 1.125rem));
@@ -159,6 +164,10 @@
 }
 
 .link:focus {
+  outline: initial;
+}
+
+.link:focus-visible {
   outline: 1px solid var(--font-color, #f1b2ce);
 }
 
@@ -214,7 +223,8 @@
     padding-inline-end: 20px;
   }
 
-  .header__title {
+  .header__title,
+  .footer__title {
     justify-self: start;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   }
@@ -229,21 +239,43 @@
     margin-inline: 20px;
   }
 
-  .main__article:first-child {
+  .custom {
+    margin-block-start: 80px;
+  }
+
+  .custom__grid {
+    display: grid;
+    row-gap: 20px;
+    grid-row: 2;
+    grid-column: 1/span 3;
+  } 
+
+  .custom .main__section-article {
+    padding-inline-start: initial;
+  }
+
+  .custom .main__section-title {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-inline-start: initial;
+  }
+
+  .main__section:first-child {
     margin-block-start: 60px;
   }
 
-  .main__article {
+  .main__section {
     display: grid;
     margin-block-end: 80px;
     gap: 20px;
+    grid-auto-flow: column;
   }
 
-  .main__article:last-child {
+  .main__section:last-child {
     display: block;
   }
 
-  .main__article:nth-child(3n-1) > .main__article-section {
+  .main__section:nth-child(3n-1) > .main__section-article {
     grid-column: 1/span 3;
     padding-inline-start: initial;
   }
@@ -257,7 +289,7 @@
     margin-block-end: 10px;
   }
 
-  .main__article-section {
+  .main__section-article {
     grid-column: 2/span 3;
     padding-inline-start: 15px;
   }
@@ -303,11 +335,7 @@
     align-self: stretch;
   }
 
-  .footer.decorated-zone::before {
-    top: 0;
-  }
-
-  .footer > .header__title {
+ .footer__title {
     margin-block-end: 30px;
     text-shadow: 2px 2px 0 var(--color-shadow, #FF0070);
   }
@@ -326,27 +354,31 @@
     margin-inline-start: 15px;
   }
 
-  .main__article:nth-child(3n-1) > .main__article-section {
-    grid-column: 2;
-    grid-row: 2;
+  .main__section {
+    grid-auto-flow: row;
   }
 
-  .main__article:nth-child(2) > .main__article-title {
-    grid-row: 1;
+  .custom__grid,
+  .custom {
+    display: grid;
+    grid-auto-flow: initial;
   }
 
-
-  .main__article:nth-child(2) > .main__article-section:nth-child(2) {
-    grid-column: 1;
-    grid-row: 2;
+  .custom .main__section-title {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
-  .main__article:nth-child(2) > .main__article-section:last-child {
-    grid-column: 3;
-    grid-row: 2;
+  .custom__grid {
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .main__article-section {
+  .main__section-article {
     padding-inline-start: 8px;
+  }
+
+  .custom .main__section-article {
+    grid-column: initial;
   }
 }
