@@ -50,6 +50,10 @@
     --font-size-default: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
     --outline-color-focus: rgba(50, 49, 45, 0.4);
   }
+
+  .header__custom-rec {
+    display: none;
+  }
 }
 
 /* Остальные стили, только при необходимости */

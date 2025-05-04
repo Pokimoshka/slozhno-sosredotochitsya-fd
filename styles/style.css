@@ -154,6 +154,11 @@
   line-height: 1.3em;
 }
 
+.main__section-grid {
+  display: grid;
+  margin-block-start: 20px;
+}
+
 .link {
   text-shadow: 2px 2px 0px var(--color-shadow, #FF0070);
   text-decoration: none;
@@ -280,7 +285,8 @@
     padding-inline-start: initial;
   }
 
-  .main__article-subtitle {
+  .main__article-subtitle,
+  .main__section-subtitle {
     margin-block-start: initial;
   }
 
@@ -292,6 +298,22 @@
   .main__section-article {
     grid-column: 2/span 3;
     padding-inline-start: 15px;
+  }
+
+  .main__section-subtitle {
+    grid-column: 2/span 3;
+    margin-inline-start: initial;
+  }
+
+  .main__section-grid {
+    row-gap: 20px;
+    column-gap: initial;
+    margin-block-start: initial;
+    grid-column: 2/ span 3;
+  }
+
+  .main__section-grid .main__section-subtitle {
+    margin-inline-start: 15px;
   }
 
   .img {
